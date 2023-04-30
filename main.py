@@ -21,7 +21,7 @@ driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install())
 # Abrimos la página
 driver.get("https://practicetestautomation.com/practice-test-login/")
 driver.maximize_window()
-time.sleep(3)
+time.sleep(2)
 
 # inputs = driver.find_elements(by=By.TAG_NAME,value="input")
 # userInput = inputs[0]
