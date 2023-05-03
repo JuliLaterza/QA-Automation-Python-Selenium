@@ -9,20 +9,15 @@ Verify button Log out is displayed on the new page
 """
 
 import time
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import pytest
+
 
 class TestPositiveScenarios:
 
     @pytest.mark.login
     @pytest.mark.positive
-    def test_positive_login(self):
-        # Acá se crea el driver de Chrome. La instancia de Navegador.
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-
+    def test_positive_login(self, driver):
         # Abrimos la página
         driver.get("https://practicetestautomation.com/practice-test-login/")
         driver.maximize_window()
@@ -46,7 +41,7 @@ class TestPositiveScenarios:
 
         # Verificar si la URL cambió luego de loguearse.
         actualURL = driver.current_url
-        assert actualURL == "https://practicetestautomation.com/logged-in-successfully/" , "No se ingresó correctamente."
+        assert actualURL == "https://practicetestautomation.com/logged-in-successfully/", "No se ingresó correctamente."
 
         # Text locator
         text_locator = driver.find_element(By.TAG_NAME, value='h1')
